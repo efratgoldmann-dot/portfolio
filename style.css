@@ -1,0 +1,126 @@
+/* General reset and typography */
+body {
+    margin: 0;
+    font-family: "Inter", Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+}
+
+header {
+    text-align: center;
+    padding: 32px 20px 32px; /* Spacing above and below the name */
+}
+
+header h1 {
+    font-size: 1.4rem; /* Adjust size to your preference */
+    font-weight: 400;
+    color: #000000; /* Black for the name */
+    margin: 0;
+    letter-spacing: -0.8px;
+}
+
+header h1 span {
+    color: #767676; /* Grey for the title */
+    font-weight: 400;
+    margin-left: 0px; /* Space between name and title */
+}
+
+/* Mobile adjustment to keep it clean on phones */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    header h1 span {
+        display: block; /* Stacks the title under the name on small screens */
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+.grid-container {
+    display: grid;
+    /* This creates two equal columns */
+    grid-template-columns: 1fr 1fr; 
+    gap: 4px; 
+     /* Optional: limits the width so images don't get too giant */
+    margin: 0 auto;   /* Centers the grid on the screen */
+    padding: 4px;
+}
+
+/* Adjust the grid-item aspect ratio if you want them taller or shorter */
+.grid-item {
+    position: relative;
+    display: block;
+    aspect-ratio: 3 / 2; /* Keeps that nice cinematic rectangle shape */
+    overflow: hidden;
+    background-color: #f7f7f7;
+    text-decoration: none;
+}
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Hover Effects */
+.grid-item:hover img {
+    transform: scale(1.04);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Soft darkening on hover */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.overlay span {
+    background: #000;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
+
+/* Footer styling */
+footer {
+    padding: 80px 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #bbb;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Responsive: 1 column on mobile */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    header {
+        padding: 60px 20px 40px;
+    }
+    header h1 {
+        font-size: 1.6rem;
+    }
+}
